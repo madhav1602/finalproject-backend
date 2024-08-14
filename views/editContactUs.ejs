@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact Us Entry</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E90FF;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Contact Us Entry</h1>
+
+    <form action="/editContactUs/<%= contactUs.id %>" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= contactUs.name %>" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= contactUs.email %>" required>
+        <br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" value="<%= contactUs.subject %>" required>
+        <br>
+
+        <label for="query">Query:</label>
+        <textarea id="query" name="query" rows="4" required><%= contactUs.query %></textarea>
+        <br>
+
+        <!-- <label for="date">Date:</label> -->
+        <input type="hidden" name="date" value="<%= contactUs.date %>">
+        <!-- <input type="text" id="date" name="date" value="<%= contactUs.date %>" readonly> -->
+        
+
+        <!-- Include other fields related to contact details editing -->
+
+        <button type="submit">Update Contact Entry</button>
+    </form>
+
+    <br>
+    <a href="/listContactUs">Back to Contact Us Entries List</a>
+</body>
+</html>

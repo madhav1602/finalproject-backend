@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User Subscription Plan</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E90FF;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit User Subscription Plan</h1>
+
+    <form action="/editUserSubscriptionPlan/<%= userSubscription.userid %>/<%= userSubscription.spid %>" method="post">
+        <label for="startdate">Start Date:</label>
+        <input type="date" id="startdate" name="startdate" value="<%= userSubscription.startdate.toISOString().split('T')[0] %>" required>
+        <br>
+
+        <label for="enddate">End Date:</label>
+        <input type="date" id="enddate" name="enddate" value="<%= userSubscription.enddate ? userSubscription.enddate.toISOString().split('T')[0] : '' %>">
+        <br>
+
+        <!-- Include other fields related to user subscription plan editing -->
+
+        <button type="submit">Update Subscription Plan</button>
+    </form>
+
+    <br>
+    <a href="/listUserSubscriptionPlans">Back to User Subscription Plans List</a>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Contact Us Entries</title>
+    <!-- Add this style tag in the <head> section of your EJS files -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    nav {
+        background-color: #eee;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #ddd;
+        margin: 20px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: #1E90FF;
+        margin-right: 10px;
+    }
+
+    footer {
+        margin-top: 20px;
+        text-align: center;
+        color: #777;
+    }
+</style>
+
+</head>
+<body>
+    <h1>List of Contact Us Entries</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Query</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        <% contactEntries.forEach(entry => { %>
+            <tr>
+                <td><%= entry.id %></td>
+                <td><%= entry.name %></td>
+                <td><%= entry.email %></td>
+                <td><%= entry.subject %></td>
+                <td><%= entry.query %></td>
+                <td><%= entry.date.toLocaleDateString() %></td>
+
+                <td>
+                    <a href="/editContactUs/<%= entry.id %>">Edit</a>
+                    <a href="/deleteContactUs/<%= entry.id %>" onclick="return confirm('Are you sure you want to delete this contact entry?')">Delete</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+    <br>
+    <a href="/addContactUs">Add New Contact Entry</a>
+</body>
+</html>

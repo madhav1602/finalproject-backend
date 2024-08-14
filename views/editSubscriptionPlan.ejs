@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Subscription Plan</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E90FF;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Subscription Plan</h1>
+
+    <form action="/editSubscriptionPlan/<%= subscriptionPlan.sid %>" method="post">
+        <label for="plan_name">Plan Name:</label>
+        <input type="text" id="plan_name" name="plan_name" value="<%= subscriptionPlan.plan_name %>" required>
+        <br>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" value="<%= subscriptionPlan.price %>" required>
+        <br>
+
+        <label for="duration">Duration (in months):</label>
+        <input type="text" id="duration" name="duration" value="<%= subscriptionPlan.duration %>" required>
+        <br>
+
+        <!-- Include other fields related to subscription plan editing -->
+
+        <button type="submit">Update Subscription Plan</button>
+    </form>
+
+    <br>
+    <a href="/listSubscriptionPlans">Back to Subscription Plans List</a>
+</body>
+</html>

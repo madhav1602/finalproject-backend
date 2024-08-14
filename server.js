@@ -519,7 +519,7 @@ app.post('/create-author', (req, res) => {
 });
 
 app.get('/api/contents', (req, res) => {
-  const query = 'SELECT * FROM Content';
+  const query = 'SELECT * FROM content';
 
   db.query(query, (error, results) => {
     if (error) {
